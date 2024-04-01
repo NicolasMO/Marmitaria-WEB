@@ -1,0 +1,660 @@
+body {
+    box-sizing: border-box;
+    background-color: rgba(34, 50, 23, 0.62);
+    margin: 0;
+    padding: 0;
+}
+
+body::-webkit-scrollbar {
+    display: none;
+}
+
+/* Header */
+
+div.container-fluid {
+    padding: 0px;
+    height: 400px;
+}
+
+img#offcanvas {
+    position: absolute;
+    top: 0;
+    width: 100vh;
+    height: 400px;
+    z-index: 0;
+}
+
+div#off_canvas {
+    color: white;
+    background-color: rgba(34, 50, 23, 0.62);
+    width: 15%;
+    height: 43%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#img_header {
+    margin-top: 30px;
+    width: 120px;
+}
+
+p.canvas_item {
+    font-size: 24px;
+    margin-top: 10px;
+}
+
+p.canvas_item>a {
+    text-decoration: none;
+    color: #FFFFFF;
+}
+
+/* MarmitaPick */
+
+div#marmita_bg {
+    margin-top: 70px;
+    background-color: rgb(217, 217, 217);
+    height: 900px;
+}
+
+#marmita_type {
+    background-color: rgb(231, 231, 231);
+    width: 400px;
+    height: 600px;
+    margin: 130px;
+    margin-top: 80px;
+    border-radius: 30px;
+}
+
+#marmita_type img {
+    height: 300px;
+    width: 400px;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+}
+
+#marmita_type h3 {
+    text-align: center;
+    margin-top: 15px;
+}
+
+#marmita_type h3::after {
+    content: '';
+    margin-top: 5px;
+    display: block;
+    border-bottom: 3px solid rgb(155, 155, 155);
+}
+
+
+p#marmita_text {
+    margin-top: 20px;
+    font-weight: 500;
+    text-align: left;
+}
+
+
+button#btn_choose {
+    margin-top: 45px;
+    border: none;
+    background-color: rgb(65, 184, 46);
+    height: 40px;
+    width: 135px;
+    border-radius: 10px;
+    font-size: 24px;
+    font-weight: 600;
+}
+
+button#btn_choose a {
+    color: #000;
+    text-decoration: none;
+}
+
+/* Bebidas */
+
+div#drinks_bg {
+    margin-top: 70px;
+    margin-bottom: 70px;
+    background-color: rgb(217, 217, 217);
+    height: 950px;
+}
+
+#drink_type:first-child {
+    margin-left: 80px;
+}
+
+#drink_type {
+    background-color: rgb(231, 231, 231);
+    width: 243px;
+    height: 365px;
+    margin-top: 50px;
+    border-radius: 30px;
+}
+
+#drink_type img {
+    width: 243px;
+    height: 223px;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+}
+
+#drink_type h3 {
+    margin-top: 15px;
+    font-size: 18px;
+    text-align: center;
+}
+
+#drink_type h3::after {
+    border-bottom: 3px solid rgb(155, 155, 155);
+    content: '';
+    margin-top: 5px;
+    display: block;
+}
+
+
+p#drink_text {
+    text-align: center;
+}
+
+button#btn_add_drink {
+    border: none;
+    background-color: rgb(65, 184, 46);
+    height: 40px;
+    width: 135px;
+    border-radius: 10px;
+    font-size: 20px;
+    font-weight: 500;
+}
+
+/* Marmita Page */
+
+div#marmitacomp_bg {
+    margin-top: 70px;
+    margin-bottom: 70px;
+    background-color: rgb(217, 217, 217);
+    height: 820px;
+}
+
+div#marmita_comp {
+    margin: 50px;
+    width: 55%;
+}
+
+h2 {
+    color: rgb(255, 35, 35);
+    font-size: 28px;
+    font-weight: 700;
+}
+
+div#comp_1 {
+    background-color: rgba(235, 225, 225, 0.7);
+    padding: 15px;
+    border-radius: 15px;
+    font-weight: 600;
+    margin-bottom: 30px;
+}
+
+div#comp_1>div {
+    margin-top: 5px;
+
+}
+
+div#comp_2 {
+    background-color: rgba(235, 225, 225, 0.7);
+    padding: 15px;
+    border-radius: 15px;
+    font-weight: 600;
+}
+
+div#comp_2>div {
+    margin-top: 5px;
+}
+
+div#comp_3 {
+    background-color: rgba(235, 225, 225, 0.7);
+    padding: 15px;
+    border-radius: 15px;
+    font-weight: 600;
+    height: 91.4%;
+}
+
+div#comp_3>div {
+    margin-top: 5px;
+    margin-bottom: 15px;
+}
+
+input.form-check-input {
+    box-shadow: none !important;
+}
+
+div#marmita_img {
+    background-color: rgba(185, 189, 187, 0.507);
+    padding: 15px;
+    border-radius: 15px;
+    margin-top: 92px;
+    height: 75.5%;
+    align-content: space-evenly;
+}
+
+div#marmita_img>div {
+    padding: 20px;
+}
+
+div#marmita_img img {
+    width: 110px;
+    height: 90px;
+    margin: 5px;
+}
+
+div#marmita_buttons {
+    padding-inline: 60px;
+}
+
+button#btn_finish {
+    margin-top: 45px;
+    margin-left: 29%;
+    border: none;
+    background-color: rgb(65, 184, 46);
+    border-radius: 15px;
+    font-size: 24px;
+    font-weight: 600;
+    padding: 3px 10px 7px 10px;
+}
+
+button#btn_finish a {
+    color: #000;
+    text-decoration: none;
+}
+
+button#btn_back {
+    margin-top: 45px;
+    border: none;
+    background-color: rgb(208, 51, 51);
+    border-radius: 15px;
+    width: 10%;
+    font-size: 24px;
+    font-weight: 600;
+    padding: 3px 10px 7px 10px;
+}
+
+button#btn_back a {
+    color: #000;
+    text-decoration: none;
+}
+
+/* Modal Finish */
+
+.modal-dialog,
+.modal-content {
+    background-color: rgb(217, 217, 217);
+    border-radius: 50px;
+    max-width: 1000px;
+    height: 755px;
+    margin-top: 4%
+}
+
+#req_items {
+    background-color: rgb(197, 197, 197);
+    margin: 50px 70px 0px;
+    height: 378px;
+}
+
+.item_list {
+    overflow-y: scroll;
+    list-style: none;
+    display: block;
+    height: 378px;
+}
+
+.item_list::-webkit-scrollbar {
+    display: none;
+}
+
+.item {
+    background-color: rgb(238, 238, 238);
+    height: 107px;
+    margin: 5px 0px;
+    border-radius: 17px;
+    font-size: 24px;
+    padding: 5px;
+    position: relative;
+    white-space: nowrap;
+}
+
+.item_info {
+    padding: 0px 5px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.item>span {
+    margin-left: 5px;
+    margin-right: 17px;
+}
+
+div.item_desc {
+    font-size: 14px;
+    margin-bottom: 40px;
+    font-weight: 600;
+    color: rgb(119, 119, 119);
+    margin-left: 5px;
+}
+
+div.item_desc>p {
+    margin-top: -2px;
+    margin-bottom: 0px;
+}
+
+span.drink_info {
+    display: block;
+    width: 150px;
+    word-wrap: break-word;
+    white-space: normal;
+    text-align: center;
+    width: 186px;
+}
+
+button#btn_remove {
+    position: absolute;
+    right: 12px;
+    top: 55px;
+    border: none;
+    background-color: rgb(208, 51, 51);
+    border-radius: 17px;
+    width: 17%;
+    height: 40%;
+}
+
+button#btn_remove a {
+    color: #fff;
+    text-decoration: none;
+}
+
+div#finish_options {
+    margin: 20px;
+}
+
+div#finish_address {
+    padding-left: 15%;
+}
+
+div#finish_address>span {
+    font-size: 24px;
+    font-weight: 600;
+}
+
+#btn_dropdown {
+    margin-top: 5px;
+    background-color: #FFFFFF;
+    color: rgba(64, 60, 60, 0.58);
+    width: 82%
+}
+
+div#finish_payment {
+    padding-left: 7%;
+}
+
+div#finish_payment>span {
+    font-size: 24px;
+    font-weight: 600;
+}
+
+div#payment_field {
+    background-color: #FFFFFF;
+    width: 70%;
+    margin-top: 5px;
+    border-radius: 8px;
+}
+
+#payment_options_card {
+    padding-top: 10px;
+}
+
+#payment_options_money {
+    padding-top: 10px;
+}
+
+input.radio[type="radio"] {
+    display: none;
+}
+
+input.radio[type="radio"]+label::before {
+    content: '';
+    width: 22px;
+    height: 22px;
+    border: 1px solid rgb(255, 66, 66);
+    border-radius: 50%;
+    background-color: #FFFFFF;
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 8px;
+    margin-left: -10px;
+    margin-bottom: 3px;
+}
+
+input.radio[type="radio"]:checked+label::before {
+    background-color: rgb(255, 66, 66);
+}
+
+span#radio_dinheiro {
+    margin-left: 20px;
+}
+
+span#radio_dinheiro input {
+    display: none;
+}
+
+span#radio_dinheiro input+label::before {
+    content: '';
+    width: 22px;
+    height: 22px;
+    border: 1px solid rgb(255, 66, 66);
+    border-radius: 4px;
+    background-color: #FFFFFF;
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 5px;
+    margin-bottom: 3px;
+}
+
+span#radio_dinheiro input:checked+label::before {
+    background-image: url("data:image/svg+xml,%0A%3Csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='2 2 9 9'%3E%3Cg class='nc-icon-wrapper' stroke-width='1' fill='%23555555'%3E%3Cpath fill='none' stroke='%23FFFFFF' stroke-linecap='round' stroke-linejoin='round' stroke-miterlimit='10' data-cap='butt' d='M2.83 4.72l1.58 1.58 2.83-2.83'/%3E%3C/g%3E%3C/svg%3E");
+    background-color: rgb(255, 66, 66);
+}
+
+p#troco_field {
+    margin-top: 15px;
+    margin-left: -8px;
+    padding-bottom: 10px;
+}
+
+p#troco_field input {
+    border: none;
+    background-color: rgb(225, 225, 225);
+    margin-left: 10px;
+    width: 60%;
+}
+
+div#modal_footer {
+    padding-top: 6px;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+button#btn_modal_back {
+    font-size: 24px;
+    font-weight: 600;
+    border: none;
+    border-radius: 20px;
+    padding: 5px 20px;
+    background-color: rgb(208, 51, 51);
+    margin-left: -50px
+}
+
+button#btn_modal_clear {
+    font-size: 24px;
+    font-weight: 600;
+    border: none;
+    border-radius: 20px;
+    padding: 5px 20px;
+    background-color: rgb(208, 187, 0);
+    margin-left: 45px;
+}
+
+button#btn_modal_finish {
+    font-size: 24px;
+    font-weight: 600;
+    border: none;
+    border-radius: 20px;
+    padding: 5px 20px;
+    background-color: rgb(65, 184, 46);
+    margin-right: -45px
+}
+
+/* Myprofile */
+
+div#profile_bg {
+    margin-top: 70px;
+    margin-bottom: 70px;
+    background-color: rgb(217, 217, 217);
+    height: 850px;
+}
+
+div#profile_image img {
+    height: 125px;
+    width: 125px;
+}
+
+div.profile_data {
+    padding: 100px;
+}
+
+div.profile_infos {
+    margin-left: 80px;
+}
+
+div.profile_info_header {
+    font-size: 26px;
+    font-weight: 600;
+}
+
+div#profile_address_field {
+    margin-left: 210px;
+    display: flex;
+    flex-direction: column;
+}
+
+div#profile_header_number {
+    margin-top: 15px;
+}
+
+div#profile_header_address {
+    width: 150%;
+}
+
+.profile_info {
+    background-color: rgba(255, 255, 255, 0.37);
+    padding: 3px 25px 3px 3px;
+    margin-top: 2px;
+}
+
+div.profile_req {
+    padding: 0px 100px;
+}
+
+div.profile_req>span {
+    font-size: 26px;
+    font-weight: 600;
+}
+
+div#profile_req_items {
+    background-color: rgb(197, 197, 197);
+    margin: 5px 0px;
+    height: 378px;
+}
+
+.profile_item_list {
+    overflow-y: scroll;
+    list-style: none;
+    display: block;
+    height: 378px;
+    padding: 2px 7px;
+}
+
+.profile_item_list::-webkit-scrollbar {
+    display: none;
+}
+
+.profile_item {
+    background-color: rgb(238, 238, 238);
+    height: 70px;
+    margin: 5px 0px;
+    border-radius: 17px;
+    font-size: 24px;
+    padding: 5px;
+}
+
+.profile_item_info {
+    margin-top: 1%;
+    display: flex;
+    justify-content: space-around;
+
+}
+
+button.btn_details {
+    border: none;
+    background-color: rgb(208, 62, 0);
+    border-radius: 17px;
+    margin-right: 25px;
+    margin-top: -1px;
+    margin-bottom: 2px;
+    width: 100%;
+    height: 100%;
+}
+
+button.btn_details a {
+    color: #fff;
+    text-decoration: none;
+}
+
+/* SALES CART */
+#cartButton {
+    position: fixed;
+    width: 200px;
+    bottom: 1rem;
+    right: 18.5rem;
+    background-color: rgb(208, 51, 51);
+    color: #FFF;
+    font-size: 24px;
+    border-radius: 20px;
+}
+
+#finishCartButton {
+    background-color: rgb(65, 184, 46);
+    color: #FFF;
+    font-size: 24px;
+    border-radius: 20px;
+    margin: 10px 30px 16px 30px;
+}
+
+#offcanvasScrolling {
+    background-color: rgb(182, 182, 182);
+    width: 15.1%;
+}
+
+#cartItems {
+    font-size: 19px;
+    font-weight: bold;
+}
+
+#cartTotal {
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+}
+
+#cartTotal > p {
+    margin-bottom: 0px;
+}

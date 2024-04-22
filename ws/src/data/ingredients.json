@@ -1,0 +1,122 @@
+[
+    {
+        "name": "Peito de frango assado",
+        "type": "Proteinas",
+        "thumb": "Peito de frango assado",
+        "value": "peitodefrangoassado"
+    },
+    {
+        "name": "Carne trinchada",
+        "type": "Proteinas",
+        "thumb": "Carne trinchada",
+        "value": "carnetrinchada"
+    },
+    {
+        "name": "Omelete c/ frango e queijo",
+        "type": "Proteinas",
+        "thumb": "Omelete c/ frango e queijo",
+        "value": "omeletefrangoqueijo"
+    },
+    {
+        "name": "Almondegas",
+        "type": "Proteinas",
+        "thumb": "Almondegas",
+        "value": "almondegas"
+    },
+    {
+        "name": "Bife de soja",
+        "type": "Proteinas",
+        "thumb": "Bife de soja",
+        "value": "bifedesoja"
+    },
+    {
+        "name": "Arroz branco",
+        "type": "Guarnições",
+        "thumb": "Arroz branco",
+        "value": "arrozbranco"
+    },
+    {
+        "name": "Baião",
+        "type": "Guarnições",
+        "thumb": "Baião",
+        "value": "baiao"
+    },
+    {
+        "name": "Feijão Carioca",
+        "type": "Guarnições",
+        "thumb": "Feijão Carioca",
+        "value": "feijaocarioca"
+    },
+    {
+        "name": "Macarrão ao alho e óleo",
+        "type": "Guarnições",
+        "thumb": "Macarrão ao alho e óleo",
+        "value": "macarraoalhoeoleo"
+    },
+    {
+        "name": "Arroz integral",
+        "type": "Guarnições",
+        "thumb": "Arroz integral",
+        "value": "arrozintegral"
+    },
+    {
+        "name": "Batata cozida",
+        "type": "Complementos",
+        "thumb": "Batata cozida",
+        "value": "batatacozida"
+    },
+    {
+        "name": "Vinagrete",
+        "type": "Complementos",
+        "thumb": "Vinagrete",
+        "value": "vinagrete"
+    },
+    {
+        "name": "Repolho refogado",
+        "type": "Complementos",
+        "thumb": "Repolho refogado",
+        "value": "repolhorefogado"
+    },
+    {
+        "name": "Batata doce cozida",
+        "type": "Complementos",
+        "thumb": "Batata doce cozida",
+        "value": "batatadocecozida"
+    },
+    {
+        "name": "Suflê de xuxu",
+        "type": "Complementos",
+        "thumb": "Suflê de xuxu",
+        "value": "sufledexuxu"
+    },
+    {
+        "name": "Salada verde",
+        "type": "Complementos",
+        "thumb": "Salada verde",
+        "value": "saladaverde"
+    },
+    {
+        "name": "Cenoura ralada",
+        "type": "Complementos",
+        "thumb": "Cenoura ralada",
+        "value": "cenouraralada"
+    },
+    {
+        "name": "Legumes com maionese",
+        "type": "Complementos",
+        "thumb": "Legumes com maionese",
+        "value": "legumesmaionese"
+    },
+    {
+        "name": "Farofa de ovo",
+        "type": "Complementos",
+        "thumb": "Farofa de ovo",
+        "value": "farovadeovo"
+    },
+    {
+        "name": "Abóbora cozida",
+        "type": "Complementos",
+        "thumb": "Abóbora cozida",
+        "value": "aboboracozida"
+    }
+]

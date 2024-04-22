@@ -4,14 +4,16 @@ import reportWebVitals from './reportWebVitals';
 import './styles/app.css'
 
 import Rotas from './routes';
+import { CarrinhoContextoProvider } from './carrinho';
 
-//import Rotas from './routes';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
-    <Rotas />
-  </React.StrictMode>
+  
+    <CarrinhoContextoProvider>
+      <Rotas />
+    </CarrinhoContextoProvider>
+  
 );
 
 // If you want to start measuring performance in your app, pass a function

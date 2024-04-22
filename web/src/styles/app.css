@@ -28,7 +28,7 @@ div#off_canvas {
     color: white;
     background-color: rgba(34, 50, 23, 0.62);
     width: 15%;
-    height: 43%;
+    height: 43.3%;
     position: absolute;
     top: 0;
     right: 0;
@@ -60,7 +60,7 @@ div#marmita_bg {
     height: 900px;
 }
 
-#marmita_type {
+.marmita_card {
     background-color: rgb(231, 231, 231);
     width: 400px;
     height: 600px;
@@ -69,19 +69,19 @@ div#marmita_bg {
     border-radius: 30px;
 }
 
-#marmita_type img {
+.marmita_card img {
     height: 300px;
     width: 400px;
     border-top-left-radius: 30px;
     border-top-right-radius: 30px;
 }
 
-#marmita_type h3 {
+.marmita_card h3 {
     text-align: center;
     margin-top: 15px;
 }
 
-#marmita_type h3::after {
+.marmita_card h3::after {
     content: '';
     margin-top: 5px;
     display: block;
@@ -89,7 +89,7 @@ div#marmita_bg {
 }
 
 
-p#marmita_text {
+p.marmita_text {
     margin-top: 20px;
     font-weight: 500;
     text-align: left;
@@ -121,11 +121,11 @@ div#drinks_bg {
     height: 950px;
 }
 
-#drink_type:first-child {
+.drink_card:first-child {
     margin-left: 80px;
 }
 
-#drink_type {
+.drink_card {
     background-color: rgb(231, 231, 231);
     width: 243px;
     height: 365px;
@@ -133,20 +133,20 @@ div#drinks_bg {
     border-radius: 30px;
 }
 
-#drink_type img {
+.drink_card img {
     width: 243px;
     height: 223px;
     border-top-left-radius: 30px;
     border-top-right-radius: 30px;
 }
 
-#drink_type h3 {
+.drink_card h3 {
     margin-top: 15px;
     font-size: 18px;
     text-align: center;
 }
 
-#drink_type h3::after {
+.drink_card h3::after {
     border-bottom: 3px solid rgb(155, 155, 155);
     content: '';
     margin-top: 5px;
@@ -154,11 +154,11 @@ div#drinks_bg {
 }
 
 
-p#drink_text {
+p.drink_text {
     text-align: center;
 }
 
-button#btn_add_drink {
+button.btn_add_drink {
     border: none;
     background-color: rgb(65, 184, 46);
     height: 40px;
@@ -188,7 +188,7 @@ h2 {
     font-weight: 700;
 }
 
-div#comp_1 {
+ul#comp_1 {
     background-color: rgba(235, 225, 225, 0.7);
     padding: 15px;
     border-radius: 15px;
@@ -196,31 +196,31 @@ div#comp_1 {
     margin-bottom: 30px;
 }
 
-div#comp_1>div {
+ul#comp_1>li {
     margin-top: 5px;
 
 }
 
-div#comp_2 {
+ul#comp_2 {
     background-color: rgba(235, 225, 225, 0.7);
     padding: 15px;
     border-radius: 15px;
     font-weight: 600;
 }
 
-div#comp_2>div {
+ul#comp_2>li {
     margin-top: 5px;
 }
 
-div#comp_3 {
+ul#comp_3 {
     background-color: rgba(235, 225, 225, 0.7);
     padding: 15px;
     border-radius: 15px;
     font-weight: 600;
-    height: 91.4%;
+    height: 88.4%;
 }
 
-div#comp_3>div {
+ul#comp_3>li {
     margin-top: 5px;
     margin-bottom: 15px;
 }
@@ -234,12 +234,12 @@ div#marmita_img {
     padding: 15px;
     border-radius: 15px;
     margin-top: 92px;
-    height: 75.5%;
+    height: 73.5%;
     align-content: space-evenly;
 }
 
 div#marmita_img>div {
-    padding: 20px;
+    padding: 0px 24px;
 }
 
 div#marmita_img img {
@@ -624,7 +624,7 @@ button.btn_details a {
     position: fixed;
     width: 200px;
     bottom: 1rem;
-    right: 18.5rem;
+    right: 1rem;
     background-color: rgb(208, 51, 51);
     color: #FFF;
     font-size: 24px;
@@ -644,9 +644,11 @@ button.btn_details a {
     width: 15.1%;
 }
 
-#cartItems {
+#cartItems > ul {
     font-size: 19px;
     font-weight: bold;
+    list-style: none;
+    margin-left: -25px;
 }
 
 #cartTotal {

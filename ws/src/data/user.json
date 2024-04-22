@@ -1,0 +1,18 @@
+[
+    {
+        "name": "Nicolas",
+        "email": "nicolas@marmita.com",
+        "password": "123",
+        "number": "000000000",
+        "address": [],
+        "requests": []
+    },
+    {
+        "name": "ADMIN",
+        "email": "admin@marmita.com",
+        "password": "admin",
+        "number": "1111111111",
+        "address": [],
+        "requests": []
+    }
+]

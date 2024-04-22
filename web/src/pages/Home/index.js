@@ -6,6 +6,7 @@ import Drinks from "../../components/Drinks"
 import ModalFinish from "../../components/ModalFinish"
 import SalesCart from "../../components/SalesCart"
 
+
 const Home = () => {
     return (
         <>
@@ -13,18 +14,11 @@ const Home = () => {
 
             <SalesCart />
 
-            <div>
-                <Header />
-            </div>
+            <Header />
 
-            <div>
-                <MarmitaPick />
-            </div>
+            <MarmitaPick />
 
-            <div>
-                <Drinks />
-            </div>
-
+            <Drinks />
         </>
     )
 }

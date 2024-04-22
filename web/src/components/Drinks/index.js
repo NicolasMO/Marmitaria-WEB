@@ -1,76 +1,54 @@
-import React from "react"
+import React, { useState, useEffect, useContext } from "react"
+
+import api from "../../services/api"
+
+import DrinksCard from "../DrinksCard"
+import { CarrinhoContexto } from "../../carrinho"
 
 const Drinks = () => {
+
+    const [drink, setDrink] = useState([])
+    const { setCarrinho } = useContext(CarrinhoContexto)
+
+    const getDrinks = async () => {
+        try {
+            const response = await api.get('/produto/?type=Drink')
+            const res = response.data
+
+            if (res.error) {
+                alert(res.message)
+                return false
+            }
+
+            setDrink(res.comidas)
+        } catch (err) {
+            alert(err.message)
+        }
+    }
+
+    useEffect(() => {
+        getDrinks()
+    }, [])
+
+    const adicionarItemCarrinho = (produto) => {
+        const produtoNome = produto.name
+        const produtoPrice = produto.price
+        const produtoTipo = produto.type
+        
+        setCarrinho({ produtoNome, produtoPrice, produtoTipo })
+        window.location.reload()
+    }
+
     return (
         <div class="container">
             <div id="drinks_bg">
                 <h1 class="text-center bold pt-5"><strong>Escolha sua bebida</strong></h1>
 
                 <div id="drink_field" class="row justify-content-center">
-                    <div class="col-4">
-                        <div id="drink_type" class="d-flex flex-column align-items-center">
-                            <img src={require('../../assets/latacoca.jpg')} />
-                            <h3>Coca Cola Lata - R$ 5,00</h3>
-                            <p id="drink_text">
-                                Refrigerante Coca Cola 350ml
-                            </p>
-                            <button id="btn_add_drink" value="0">
-                                <span>adicionar</span>
-                            </button>
-                        </div>
-                    </div>
-
-                    <div class="col-4">
-                        <div id="drink_type" class="d-flex flex-column align-items-center">
-                            <img src={require('../../assets/latacocazero.jpg')} />
-                            <h3>Coca Zero Lata - R$ 6,00</h3>
-                            <p id="drink_text">
-                                Refrigerante Coca Zero 350ml
-                            </p>
-                            <button id="btn_add_drink" value="0">
-                                <span>adicionar</span>
-                            </button>
-                        </div>
-                    </div>
-
-                    <div class="col-4">
-                        <div id="drink_type" class="d-flex flex-column align-items-center">
-                            <img src={require('../../assets/latafanta - Copia.jpg')} />
-                            <h3>Fanta Laranja Lata - R$ 5,00</h3>
-                            <p id="drink_text">
-                                Refrigerante Fanta Laranja 350ml
-                            </p>
-                            <button id="btn_add_drink" value="0">
-                                <span>adicionar</span>
-                            </button>
-                        </div>
-                    </div>
-
-                    <div class="col-4">
-                        <div id="drink_type" class="d-flex flex-column align-items-center">
-                            <img src={require('../../assets/lataguarana - Copia.jpg')} />
-                            <h3>Guaraná Lata - R$ 5,00</h3>
-                            <p id="drink_text">
-                                Refrigerante Guaraná 350ml
-                            </p>
-                            <button id="btn_add_drink" value="0">
-                                <span>adicionar</span>
-                            </button>
-                        </div>
-                    </div>
-
-                    <div class="col-4">
-                        <div id="drink_type" class="d-flex flex-column align-items-center">
-                            <img src={require('../../assets/agua.png')} />
-                            <h3>Água Mineral - R$ 3,00</h3>
-                            <p id="drink_text">
-                                Água mineral 350ml
-                            </p>
-                            <button id="btn_add_drink" value="0">
-                                <span>adicionar</span>
-                            </button>
-                        </div>
-                    </div>
+                    {drink.map((produto) => <DrinksCard 
+                                                produto={produto} 
+                                                adicionar={(item) => adicionarItemCarrinho(item)}
+                                                />)}
                 </div>
             </div>
         </div>

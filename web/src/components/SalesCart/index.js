@@ -1,6 +1,27 @@
-import React from "react"
+import React, { useContext, useState ,useEffect } from "react"
+import { CarrinhoContexto } from "../../carrinho"
+import SalesCartItem from "../SalesCartItem"
 
 const SalesCart = () => {
+    
+    const { carrinho } = useContext(CarrinhoContexto)
+    const [compras, setCompras] = useState(() => {
+        const storedCompras = localStorage.getItem("compras");
+        return storedCompras ? JSON.parse(storedCompras) : [];
+    })
+
+    const somaCarrinho = compras.reduce((acumulador, produtoAtual) => {
+        return acumulador + produtoAtual.produtoPrice
+    }, 0)
+
+    useEffect(() => {
+        if (carrinho && Object.keys(carrinho).length !== 0) { // Verifica se carrinho não está vazio
+            const updatedCompras = [...compras, carrinho];
+            setCompras(updatedCompras);
+            localStorage.setItem("compras", JSON.stringify(updatedCompras))
+        }
+    }, [carrinho])
+
     return (
         <>
             <button id="cartButton" class="btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling">Abrir Carrinho</button>
@@ -12,17 +33,17 @@ const SalesCart = () => {
                 </div>
                 <div class="offcanvas-body">
                     <div id="cartItems">
-                        <p>Marmita Grande: R$ 16,00</p>
-                        <p>Marmita Pequena: R$ 12,00</p>
-                        <p>Coca Cola Lata: R$ 5,00</p>
-                        <p>Água Mineral: R$ 3,00</p>
+                        <ul>
+                            {compras.map((item) =>
+                                <SalesCartItem produto={item} />)}
+                        </ul>
                     </div>
                 </div>
 
                 <div id="cartTotal">
-                    <p>TOTAL: R$: 36,00</p>
+                    <p>TOTAL: R$: {somaCarrinho.toFixed(2)}</p>
                 </div>
-                <button id="finishCartButton" class="btn" type="button"  data-bs-toggle="modal" data-bs-target="#exampleModal">Finalizar Pedido</button>
+                <button id="finishCartButton" class="btn" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">Finalizar Pedido</button>
             </div>
         </>
     )

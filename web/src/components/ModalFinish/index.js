@@ -1,6 +1,26 @@
-import React from "react"
+import React, { useState } from "react"
+
+import ModalItemList from "../ModalItemList"
 
 const ModalFinish = () => {
+    
+    const [compras, setCompras] = useState(() => {
+        const storedCompras = localStorage.getItem('compras');
+        return storedCompras ? JSON.parse(storedCompras) : [];
+      });
+    
+    const limparCarrinho = () => {
+        window.location.reload()
+        localStorage.clear()
+    }
+
+    const removerItem = (id) => {
+        const updatedCompras = compras.filter((_, item) => item !== id)
+        setCompras(updatedCompras)
+        localStorage.setItem("compras", JSON.stringify(updatedCompras))
+    }
+
+
     return (
         <div class="modal fade" id="exampleModal">
             <div class="modal-dialog">
@@ -8,102 +28,11 @@ const ModalFinish = () => {
                     <div class="modal-body">
                         <div id="req_items" class="row">
                             <ul class="item_list">
-                                <li class="item">
-                                    <div class="item_info">
-                                        <span>Marmita Grande</span>
-                                        <span>Valor: R$ 16,00</span>
-                                        <span>QTD: 1</span>
-                                        <span>Valor Total: R$ 16,00</span>
-                                    </div>
-                                    <div class="item_desc">
-                                        <p>Proteína: Carne assada.</p>
-                                        <p>Guarnições: Arroz branco, Macarrão ao alho e oléo.</p>
-                                        <p>Acompanhamento: Repolho refogado, Purê de batata.</p>
-                                    </div>
-                                    <button id="btn_remove">
-                                        <a href="/">Remover</a>
-                                    </button>
-                                </li>
-                                
-                                <li class="item">
-                                    <div class="item_info">
-                                        <span>Marmita Pequena</span>
-                                        <span>Valor: R$ 12,00</span>
-                                        <span>QTD: 1</span>
-                                        <span>Valor Total: R$ 12,00</span>
-                                    </div>
-                                    <div class="item_desc">
-                                        <p>Proteína: Carne assada.</p>
-                                        <p>Guarnições: Arroz branco, Macarrão ao alho e oléo.</p>
-                                        <p>Acompanhamento: Repolho refogado, Purê de batata.</p>
-                                    </div>
-                                    <button id="btn_remove">
-                                        <a href="/">Remover</a>
-                                    </button>
-                                </li>
-
-                                <li class="item">
-                                    <div class="item_info">
-                                        <span class="drink_info">Refrigerante Coca Cola Lata</span>
-                                        <span>Valor: R$ 5,00</span>
-                                        <span>QTD: 1</span>
-                                        <span>Valor Total: R$ 5,00</span>
-                                    </div>
-                                    <button id="btn_remove">
-                                        <a href="/">Remover</a>
-                                    </button>
-                                </li>
-
-                                <li class="item">
-                                    <div class="item_info">
-                                        <span>Marmita Grande</span>
-                                        <span>Valor: R$ 16,00</span>
-                                        <span>QTD: 1</span>
-                                        <span>Valor Total: R$ 16,00</span>
-                                    </div>
-                                    <div class="item_desc">
-                                        <p>Proteína: Carne assada.</p>
-                                        <p>Guarnições: Arroz branco, Macarrão ao alho e oléo.</p>
-                                        <p>Acompanhamento: Repolho refogado, Purê de batata.</p>
-                                    </div>
-                                    <button id="btn_remove">
-                                        <a href="/">Remover</a>
-                                    </button>
-                                </li>
-
-                                <li class="item">
-                                    <div class="item_info">
-                                        <span>Marmita Grande</span>
-                                        <span>Valor: R$ 16,00</span>
-                                        <span>QTD: 1</span>
-                                        <span>Valor Total: R$ 16,00</span>
-                                    </div>
-                                    <div class="item_desc">
-                                        <p>Proteína: Carne assada.</p>
-                                        <p>Guarnições: Arroz branco, Macarrão ao alho e oléo.</p>
-                                        <p>Acompanhamento: Repolho refogado, Purê de batata.</p>
-                                    </div>
-                                    <button id="btn_remove">
-                                        <a href="/">Remover</a>
-                                    </button>
-                                </li>
-
-                                <li class="item">
-                                    <div class="item_info">
-                                        <span>Marmita Grande</span>
-                                        <span>Valor: R$ 16,00</span>
-                                        <span>QTD: 1</span>
-                                        <span>Valor Total: R$ 16,00</span>
-                                    </div>
-                                    <div class="item_desc">
-                                        <p>Proteína: Carne assada.</p>
-                                        <p>Guarnições: Arroz branco, Macarrão ao alho e oléo.</p>
-                                        <p>Acompanhamento: Repolho refogado, Purê de batata.</p>
-                                    </div>
-                                    <button id="btn_remove">
-                                        <a href="/">Remover</a>
-                                    </button>
-                                </li>
+                                {compras.map((produto, index) => <ModalItemList 
+                                                                    key={index} 
+                                                                    item={produto} 
+                                                                    remover={() => removerItem(index)}
+                                                                />)}
                             </ul>
                         </div>
                         <div id="finish_options" class="row">
@@ -114,8 +43,8 @@ const ModalFinish = () => {
                                         Clique para escolher
                                     </button>
                                     <ul class="dropdown-menu">
-                                        <li><a class="dropdown-item">Rua Espanha, número 67</a></li>
-                                        <li><a class="dropdown-item">Rua Canuto de Aguiar, número 133</a></li>
+                                        <li><a class="dropdown-item">Rua Tal, número 123</a></li>
+                                        <li><a class="dropdown-item">Rua Tal, número 123</a></li>
                                         <li><a class="dropdown-item">Rua Tal, número 123</a></li>
                                     </ul>
                                 </div>
@@ -149,7 +78,7 @@ const ModalFinish = () => {
                     </div>
                     <div id="modal_footer" class="modal-footer">
                         <button id="btn_modal_back" type="button" data-bs-dismiss="modal">Voltar</button>
-                        <button id="btn_modal_clear" type="button">Limpar Carrinho</button>
+                        <button id="btn_modal_clear" type="button" onClick={() => limparCarrinho()}>Limpar Carrinho</button>
                         <button id="btn_modal_finish" type="button">Finalizar Compra</button>
                     </div>
                 </div>

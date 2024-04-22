@@ -1,0 +1,53 @@
+[
+    {
+        "name": "Marmita Pequena",
+        "price": 12.00,
+        "type": "Comida",
+        "desc": "Marmita pequena, servida numa hamburgueira. Escolha 1 proteína, 2 guarnições e 2 complementos. Serve 1 pessoa.",
+        "thumb": "marmitaPequena",
+        "size": "pequena"
+    },
+    {
+        "name": "Marmita Grande",
+        "price": 16.00,
+        "type": "Comida",
+        "desc": "Marmita grande, pote de 1100ML. Escolha 2 proteínas, 3 guarnições e 4 complementos. Serve 1-2 pessoa.",
+        "thumb": "marmitaGrande",
+        "size": "grande"
+    },
+    {
+        "name": "Coca Cola Lata",
+        "price": 5.00,
+        "type": "Drink",
+        "desc": "Refrigerante Coca Cola 350ml",
+        "thumb": "cocaLata"
+    },
+    {
+        "name": "Coca Zero Lata",
+        "price": 6.00,
+        "type": "Drink",
+        "desc": "Refrigerante Coca Zero 350ml",
+        "thumb": "cocaZero"
+    },
+    {
+        "name": "Fanta Laranja Lata",
+        "price": 5.00,
+        "type": "Drink",
+        "desc": "Refrigerante Fanta Laranja 350ml",
+        "thumb": "fanta"
+    },
+    {
+        "name": "Guaraná Lata",
+        "price": 5.00,
+        "type": "Drink",
+        "desc": "Refrigerante Guaraná 350ml",
+        "thumb": "guarana"
+    },
+    {
+        "name": "Água Mineral",
+        "price": 3.00,
+        "type": "Drink",
+        "desc": "Água mineral 350ml",
+        "thumb": "agua"
+    }
+]

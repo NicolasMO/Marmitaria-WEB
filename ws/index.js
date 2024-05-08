@@ -11,7 +11,7 @@ const ingredientRoutes = require('./src/routes/ingredientes.routes')
 
 // Middlewares
 app.use(bodyParser.json())
-app.use(cors())
+app.use(cors());
 app.use(morgan('dev'))
 
 // Routes

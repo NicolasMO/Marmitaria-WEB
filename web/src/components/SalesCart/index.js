@@ -1,35 +1,38 @@
-import React, { useContext, useState ,useEffect } from "react"
-import { CarrinhoContexto } from "../../carrinho"
+import React from "react"
 import SalesCartItem from "../SalesCartItem"
+import useCarrinho from "../../hooks/useCarrinho.ts"
 
-const SalesCart = () => {
-    
-    const { carrinho } = useContext(CarrinhoContexto)
-    const [compras, setCompras] = useState(() => {
-        const storedCompras = localStorage.getItem("compras");
-        return storedCompras ? JSON.parse(storedCompras) : [];
-    })
+const SalesCart = ({ usuario }) => {
 
-    const somaCarrinho = compras.reduce((acumulador, produtoAtual) => {
-        return acumulador + produtoAtual.produtoPrice
-    }, 0)
-
-    useEffect(() => {
-        if (carrinho && Object.keys(carrinho).length !== 0) { // Verifica se carrinho não está vazio
-            const updatedCompras = [...compras, carrinho];
-            setCompras(updatedCompras);
-            localStorage.setItem("compras", JSON.stringify(updatedCompras))
+    const { compras, somaCarrinho, moved, handleClick } = useCarrinho()
+    const handleCloseSidebar = () => {
+        const closeButton = document.querySelector("[data-bs-dismiss='offcanvas']");
+        
+        if (closeButton) {
+            closeButton.click(); 
         }
-    }, [carrinho])
+    }
 
     return (
         <>
-            <button id="cartButton" class="btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling">Abrir Carrinho</button>
+        {usuario &&
+            <button 
+                id="cartButton" 
+                class="btn" 
+                type="button" 
+                data-bs-toggle="offcanvas" 
+                data-bs-target="#offcanvasScrolling" 
+                aria-controls="offcanvasScrolling"
+                style={{ marginRight: moved ? "295px" : "0" }}
+                onClick={handleClick}>
+                    {moved ? "Fechar Carrinho" : "Abrir Carrinho"}
+            </button>
+        }
 
             <div class="offcanvas offcanvas-end" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
                 <div class="offcanvas-header">
                     <h5 class="offcanvas-title" id="offcanvasScrollingLabel">Carrinho de Produtos</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close" onClick={handleClick}></button>
                 </div>
                 <div class="offcanvas-body">
                     <div id="cartItems">
@@ -43,7 +46,7 @@ const SalesCart = () => {
                 <div id="cartTotal">
                     <p>TOTAL: R$: {somaCarrinho.toFixed(2)}</p>
                 </div>
-                <button id="finishCartButton" class="btn" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">Finalizar Pedido</button>
+                <button id="finishCartButton" class="btn" type="button" data-bs-toggle='modal' data-bs-target="#exampleModal" onClick={handleCloseSidebar}>Finalizar Pedido</button>
             </div>
         </>
     )

@@ -1,7 +1,45 @@
-import React from "react"
+import React, { useEffect, useState } from "react"
 import Header from "../../components/Header"
+import RequestInfo from "../../components/RequestInfo"
+import api from '../../services/api'
 
-const Myprofile = () => {
+
+const formatarTelefone = (number) => {
+    
+    const numeroString = number.toString()
+    
+    
+    const telefoneFormatado = numeroString.replace(
+        /(\d{2})(\d{5})(\d{4})/,
+        "($1) $2-$3"
+        )
+        return telefoneFormatado
+    }
+    
+    const Myprofile = ({ usuario }) => {
+        const enderecos = usuario.address
+        
+        const [ pedidos, setPedidos ] = useState([])
+        const listaPedidos = async () => {
+            try {
+                const response = await api.get('/users/requests/list', {
+                    params: {
+                        userId: usuario._id
+                    }
+                })
+                const res = response.data
+                if (res.error) {
+                    alert(res.message)
+                    return false
+                }
+                setPedidos(res)
+            } catch (err) {
+                alert(err.message)
+            }
+        } 
+        useEffect(() => {
+            listaPedidos()
+        },[])  
     return (
         <>
             <Header />
@@ -16,17 +54,23 @@ const Myprofile = () => {
                         <div class="profile_infos d-flex">
                             <div>
                                 <div id="profile_header_name" class="profile_info_header">Nome</div>
-                                <label class="profile_info">Nícolas Martins de Oliveira</label>
+                                <label class="profile_info">{usuario.name}</label>
                                 <br />
                                 <div id="profile_header_number" class="profile_info_header">Telefone</div>
-                                <label class="profile_info">(xx) xxxxx-xxxx</label>
+                                <label class="profile_info">{formatarTelefone(usuario.number)}</label>
                             </div>
 
                             <div id="profile_address_field">
                                 <div id="profile_header_address" class="profile_info_header">Endereço p/ entrega</div>
-                                <span><label class="profile_info">Endereço X, Rua Y Nº Z</label> <img src={require('../../assets/pencil-fill.png')} /> <img src={require('../../assets/trash-fill.png')} /></span>
-                                <span><label class="profile_info">Endereço X, Rua Y Nº Z</label> <img src={require('../../assets/pencil-fill.png')} /> <img src={require('../../assets/trash-fill.png')} /></span>
-                                <span><label class="profile_info">Endereço X, Rua Y Nº Z</label> <img src={require('../../assets/pencil-fill.png')} /> <img src={require('../../assets/trash-fill.png')} /></span>
+                                {enderecos.map((endereco) => {
+                                   return (
+                                    <span>
+                                        <label class="profile_info">{endereco}</label> 
+                                        <img src={require('../../assets/pencil-fill.png')} /> 
+                                        <img src={require('../../assets/trash-fill.png')} />
+                                    </span>
+                                   )
+                                })}
                             </div>
                         </div>
                     </div>
@@ -34,73 +78,9 @@ const Myprofile = () => {
                     <div class="profile_req">
                         <span>Meus pedidos</span>
 
-                        <div id="profile_req_items">
-                            <ul class="profile_item_list">
-                                <li class="profile_item">
-                                    <div class="profile_item_info">
-                                        <span>Pedido #1234</span>
-                                        <span>Data 20/03/2024</span>
-                                        <span>Valor: R$ 10,00</span>
-                                        <span><button class="btn_details">
-                                            <a href="/">Detalhes</a>
-                                        </button></span>
-                                    </div>
-                                </li>
-
-                                <li class="profile_item">
-                                    <div class="profile_item_info">
-                                        <span>Pedido #1234</span>
-                                        <span>Data 20/03/2024</span>
-                                        <span>Valor: R$ 10,00</span>
-                                        <span><button class="btn_details">
-                                            <a href="/">Detalhes</a>
-                                        </button></span>
-                                    </div>
-                                </li>
-
-                                <li class="profile_item">
-                                    <div class="profile_item_info">
-                                        <span>Pedido #1234</span>
-                                        <span>Data 20/03/2024</span>
-                                        <span>Valor: R$ 10,00</span>
-                                        <span><button class="btn_details">
-                                            <a href="/">Detalhes</a>
-                                        </button></span>
-                                    </div>
-                                </li>
-
-                                <li class="profile_item">
-                                    <div class="profile_item_info">
-                                        <span>Pedido #1234</span>
-                                        <span>Data 20/03/2024</span>
-                                        <span>Valor: R$ 10,00</span>
-                                        <span><button class="btn_details">
-                                            <a href="/">Detalhes</a>
-                                        </button></span>
-                                    </div>
-                                </li>
-
-                                <li class="profile_item">
-                                    <div class="profile_item_info">
-                                        <span>Pedido #1234</span>
-                                        <span>Data 20/03/2024</span>
-                                        <span>Valor: R$ 10,00</span>
-                                        <span><button class="btn_details">
-                                            <a href="/">Detalhes</a>
-                                        </button></span>
-                                    </div>
-                                </li>
-
-                                <li class="profile_item">
-                                    <div class="profile_item_info">
-                                        <span>Pedido #1234</span>
-                                        <span>Data 20/03/2024</span>
-                                        <span>Valor: R$ 10,00</span>
-                                        <span><button class="btn_details">
-                                            <a href="/">Detalhes</a>
-                                        </button></span>
-                                    </div>
-                                </li>
+                        <div id="profile_req_field">
+                            <ul class="profile_req_list">
+                                {pedidos.map((pedido) => <RequestInfo pedidoInfo={pedido}/>)}
                             </ul>
                         </div>
                     </div>

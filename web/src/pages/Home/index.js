@@ -7,18 +7,19 @@ import ModalFinish from "../../components/ModalFinish"
 import SalesCart from "../../components/SalesCart"
 
 
-const Home = () => {
+const Home = ({ usuario }) => {
+    
     return (
         <>
-            <ModalFinish />
-
-            <SalesCart />
-
             <Header />
 
             <MarmitaPick />
 
             <Drinks />
+
+            <ModalFinish usuario={usuario}/>
+            
+            <SalesCart usuario={usuario}/>
         </>
     )
 }

@@ -4,7 +4,6 @@ import { Link } from "react-router-dom"
 
 const MarmitaCard = ({produto}) => {
 
-
     return (
         <>
             <div class="marmita_card d-flex flex-column align-items-center">

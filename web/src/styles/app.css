@@ -42,7 +42,7 @@ div#off_canvas {
     width: 120px;
 }
 
-p.canvas_item {
+.canvas_item {
     font-size: 24px;
     margin-top: 10px;
 }
@@ -50,6 +50,98 @@ p.canvas_item {
 p.canvas_item>a {
     text-decoration: none;
     color: #FFFFFF;
+}
+
+.form_login:first-child{
+    margin-top: 32%;
+    margin-bottom: -6%;
+}
+
+.form_login {
+    border-radius: 8px;
+    width: 85%;
+    outline: none;
+}
+
+#btn_login {
+    color: #fff;
+    background-color: rgb(208, 51, 51);
+    width: 40%;
+    height: 10%;
+    border-radius: 10px;
+    margin-top: 8%;
+    margin-bottom: 12%;
+}
+
+/* Register Field*/
+.register_field {
+    margin-top: 70px;
+    margin-bottom: 70px;
+    background-color: rgb(217, 217, 217);
+    height: 700px;
+    width: 550px;
+}
+
+.formText {
+    font-size: 24px;
+    font-weight: 500;
+    margin-top: 10px;
+}
+
+.formInput {
+    width: 50%;
+    margin-top: 5px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.btnsRegister {
+    margin-top: 140px;
+    margin-inline: 50px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.btnRegisterBack {
+    border: none;
+    background-color: rgb(208, 51, 51);
+    border-radius: 15px;
+    width: 120px;
+    height: 40px;
+    display: inline-block;
+}
+
+.btnRegisterBack a {
+    font-size: 24px;
+    font-weight: 500;
+    width: 100%;
+    height: 100%;
+    text-decoration: none;
+    color: black;
+}
+
+.btnRegisterSubmit {
+    border: none;
+    background-color: rgb(65, 184, 46);
+    border-radius: 15px;
+    width: 120px;
+    height: 40px;
+    display: inline-block;
+    position: relative;
+}
+
+.btnRegisterSubmit span {
+    font-size: 24px;
+    font-weight: 500;
+    width: 100%;
+    height: 100%;
+    text-decoration: none;
+    color: black;
+    display: block;
+    position: absolute;
+    top: 55%; 
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 /* MarmitaPick */
@@ -392,6 +484,10 @@ div#finish_address>span {
     width: 82%
 }
 
+.enderecoSelecionado {
+    color: black !important;
+}
+
 div#finish_payment {
     padding-left: 7%;
 }
@@ -438,15 +534,15 @@ input.radio[type="radio"]:checked+label::before {
     background-color: rgb(255, 66, 66);
 }
 
-span#radio_dinheiro {
+span#checkbox_dinheiro {
     margin-left: 20px;
 }
 
-span#radio_dinheiro input {
+span#checkbox_dinheiro input {
     display: none;
 }
 
-span#radio_dinheiro input+label::before {
+span#checkbox_dinheiro input+label::before {
     content: '';
     width: 22px;
     height: 22px;
@@ -459,9 +555,30 @@ span#radio_dinheiro input+label::before {
     margin-bottom: 3px;
 }
 
-span#radio_dinheiro input:checked+label::before {
+span#checkbox_dinheiro input+label::before-disabled {
+    content: '';
+    width: 22px;
+    height: 22px;
+    border: 1px solid rgb(255, 66, 66);
+    border-radius: 4px;
+    background-color: #FFFFFF;
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 5px;
+    margin-bottom: 3px;
+}
+
+span#checkbox_dinheiro input:checked+label::before {
     background-image: url("data:image/svg+xml,%0A%3Csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='2 2 9 9'%3E%3Cg class='nc-icon-wrapper' stroke-width='1' fill='%23555555'%3E%3Cpath fill='none' stroke='%23FFFFFF' stroke-linecap='round' stroke-linejoin='round' stroke-miterlimit='10' data-cap='butt' d='M2.83 4.72l1.58 1.58 2.83-2.83'/%3E%3C/g%3E%3C/svg%3E");
     background-color: rgb(255, 66, 66);
+}
+
+span#checkbox_dinheiro input:disabled+label::before {
+    opacity: 0.5;
+    background-color: grey;
+    pointer-events: none;
+    border-color: grey;
+    background-image: none
 }
 
 p#troco_field {
@@ -569,13 +686,13 @@ div.profile_req>span {
     font-weight: 600;
 }
 
-div#profile_req_items {
+div#profile_req_field {
     background-color: rgb(197, 197, 197);
     margin: 5px 0px;
     height: 378px;
 }
 
-.profile_item_list {
+.profile_req_list {
     overflow-y: scroll;
     list-style: none;
     display: block;
@@ -583,11 +700,11 @@ div#profile_req_items {
     padding: 2px 7px;
 }
 
-.profile_item_list::-webkit-scrollbar {
+.profile_req_list::-webkit-scrollbar {
     display: none;
 }
 
-.profile_item {
+.profile_req_item {
     background-color: rgb(238, 238, 238);
     height: 70px;
     margin: 5px 0px;
@@ -596,7 +713,7 @@ div#profile_req_items {
     padding: 5px;
 }
 
-.profile_item_info {
+.profile_req_info {
     margin-top: 1%;
     display: flex;
     justify-content: space-around;
@@ -629,6 +746,7 @@ button.btn_details a {
     color: #FFF;
     font-size: 24px;
     border-radius: 20px;
+    transition: margin-right 0.37s;
 }
 
 #finishCartButton {

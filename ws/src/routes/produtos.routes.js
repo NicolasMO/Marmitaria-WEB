@@ -5,7 +5,6 @@ const Product = require('../models/product')
 // RECUPERAR TODOS OS REGISTROS
 router.get('/', async (req, res) => {
     try {
-        console.log(req.query)
         const produtos = await Product.find({})
         res.json({ error: false, produtos })        
     } catch (err) {
@@ -16,7 +15,6 @@ router.get('/', async (req, res) => {
 // Pegar produtos do tipo especifico
 router.get('/produto', async (req, res) => {
     try {
-        console.log(req.query)
         const comidas = await Product.find(req.query)
         res.json({ comidas })        
     } catch (err) {

@@ -1,8 +1,8 @@
 import React from "react"
 
-const SalesCartItem = (produto) => {
+const SalesCartItem = ({ produto }) => {
     return (
-        <li>{produto.produto.produtoNome}: R$ {produto.produto.produtoPrice.toFixed(2)}</li>
+        <li>{produto.produtoNome}: R$ {produto.produtoPrice.toFixed(2)}</li>
     )
 }
 

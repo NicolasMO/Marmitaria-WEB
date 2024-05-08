@@ -3,8 +3,8 @@
         "name": "Nicolas",
         "email": "nicolas@marmita.com",
         "password": "123",
-        "number": "000000000",
-        "address": [],
+        "number": "99999999999",
+        "address": ["Rua X, N 1", "Rua Y, N 33", "Rua Z, N 99"],
         "requests": []
     },
     {
@@ -12,7 +12,7 @@
         "email": "admin@marmita.com",
         "password": "admin",
         "number": "1111111111",
-        "address": [],
+        "address": ["Terra do Nunca, N 0"],
         "requests": []
     }
 ]

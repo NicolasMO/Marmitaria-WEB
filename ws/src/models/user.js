@@ -6,7 +6,7 @@ const User = mongoose.model('User', {
     password: String,
     number: Number,
     address: Array,
-    requests: Array
+    requests: [{ type: mongoose.Types.ObjectId, ref: 'Request'}]
 })
 
 module.exports = User
